@@ -29,6 +29,20 @@ sudo curl -sSLo /usr/local/bin/ninja https://github.com/prepkg/ninja/releases/la
 sudo chmod a+x /usr/local/bin/ninja
 ```
 
+* arm-linux-gnueabi:
+
+```shell
+sudo curl -sSLo /usr/local/bin/ninja https://github.com/prepkg/ninja/releases/latest/download/ninja-arm-linux-gnueabi
+sudo chmod a+x /usr/local/bin/ninja
+```
+
+* riscv64-linux-gnu:
+
+```shell
+sudo curl -sSLo /usr/local/bin/ninja https://github.com/prepkg/ninja/releases/latest/download/ninja-riscv64-linux-gnu
+sudo chmod a+x /usr/local/bin/ninja
+```
+
 ## Compilation
 
 * Clone the repository:
