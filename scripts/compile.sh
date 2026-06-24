@@ -2,9 +2,8 @@
 
 VERSION=$(curl -s https://api.github.com/repos/ninja-build/ninja/releases/latest | grep -Po '"tag_name": "\Kv[0-9.]+')
 
-cd /tmp
-git clone https://github.com/ninja-build/ninja.git --depth=1 --branch=$VERSION
-cd ninja
+git clone https://github.com/ninja-build/ninja.git --depth=1 --branch=$VERSION /tmp/ninja
+mkdir -p /app/build
 
 TOOLCHAINS=(
   'x86_64-linux-gnu'
@@ -16,14 +15,15 @@ TOOLCHAINS=(
 for toolchain in "${TOOLCHAINS[@]}"; do
   export CXX=/opt/$toolchain/bin/$toolchain-g++
 
+  cd /tmp/ninja
   rm -rf build
   cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_TESTING=OFF \
       -DCMAKE_EXE_LINKER_FLAGS='-static-libstdc++ -static-libgcc' \
       -DCMAKE_INSTALL_BINDIR='.' \
-      -DCMAKE_INSTALL_PREFIX=/app/build
+      -DCMAKE_INSTALL_PREFIX=build/install
   cmake --build build -j$(nproc)
   cmake --install build --strip
 
-  mv /app/build/ninja /app/build/ninja-$toolchain
+  cd build/install && tar czf /app/build/ninja-$toolchain.tar.gz ninja
 done
