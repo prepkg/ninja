@@ -18,25 +18,25 @@ downloaded from the [releases page](https://github.com/prepkg/ninja/releases).
 * x86_64-linux-gnu:
 
 ```shell
-sudo curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-x86_64-linux-gnu.tar.gz | tar xz -C /usr/local/bin
+curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-x86_64-linux-gnu.tar.gz | sudo tar xz -C /usr/local/bin
 ```
 
 * aarch64-linux-gnu:
 
 ```shell
-sudo curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-aarch64-linux-gnu.tar.gz | tar xz -C /usr/local/bin
+curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-aarch64-linux-gnu.tar.gz | sudo tar xz -C /usr/local/bin
 ```
 
 * arm-linux-gnueabi:
 
 ```shell
-sudo curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-arm-linux-gnueabi.tar.gz | tar xz -C /usr/local/bin
+curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-arm-linux-gnueabi.tar.gz | sudo tar xz -C /usr/local/bin
 ```
 
 * riscv64-linux-gnu:
 
 ```shell
-sudo curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-riscv64-linux-gnu.tar.gz | tar xz -C /usr/local/bin
+curl -sSL https://github.com/prepkg/ninja/releases/latest/download/ninja-riscv64-linux-gnu.tar.gz | sudo tar xz -C /usr/local/bin
 ```
 
 ## Compilation
