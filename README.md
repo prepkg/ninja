@@ -1,5 +1,8 @@
 # Ninja
 
+[![GitHub Release](https://img.shields.io/github/v/release/prepkg/ninja)](https://github.com/prepkg/ninja/releases/latest)
+[![License](https://img.shields.io/github/license/prepkg/ninja)](https://github.com/prepkg/ninja/blob/master/LICENSE)
+
 This repository provides precompiled [Ninja](https://github.com/ninja-build/ninja) binaries for Linux. The binaries
 are compiled with the [GCC Toolchain](https://github.com/prepkg/gcc-toolchain) targeting older glibc versions, ensuring
 compatibility across a wide range of Linux distributions. GitHub CI workflows are used to automate the build process:
