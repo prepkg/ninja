@@ -7,7 +7,9 @@ mkdir -p /app/build
 
 TOOLCHAINS=(
   'x86_64-linux-gnu'
+  'x86_64-linux-musl'
   'aarch64-linux-gnu'
+  'aarch64-linux-musl'
   'arm-linux-gnueabi'
   'riscv64-linux-gnu'
 )
@@ -15,12 +17,14 @@ TOOLCHAINS=(
 for toolchain in "${TOOLCHAINS[@]}"; do
   export CXX=/opt/$toolchain/bin/$toolchain-g++
 
+  LINKER_FLAGS=$([[ $toolchain == *musl* ]] && echo '-static')
+
   cd /tmp/ninja
   rm -rf build
   cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=build/install \
     -DCMAKE_INSTALL_BINDIR='.' \
-    -DCMAKE_EXE_LINKER_FLAGS='-static-libstdc++ -static-libgcc' \
+    -DCMAKE_EXE_LINKER_FLAGS="-static-libstdc++ -static-libgcc $LINKER_FLAGS" \
     -DBUILD_TESTING=OFF
   cmake --build build -j$(nproc)
   cmake --install build --strip
